@@ -29,6 +29,8 @@
 
 /* Fond général du site joaillerie */
 .aurelis-root {
+  /* évite le flash de barre de défilement quand on verrouille le scroll */
+  scrollbar-gutter: stable;
   background-color: var(--color-j-noir);
   color: var(--color-j-ivory);
   font-family: var(--font-jost);
