@@ -76,8 +76,18 @@ export default function Hero() {
               alt="Solitaire Éclat, diamant taille marquise serti sur un anneau d'or champagne"
               className={
                 wide
-                  ? "absolute inset-0 m-auto h-[62%] w-auto max-w-[86%] object-contain opacity-90"
+                  ? "absolute inset-0 m-auto h-[66%] w-auto max-w-[86%] object-contain opacity-90"
                   : "h-full w-full object-cover object-[52%_46%] opacity-70"
+              }
+              style={
+                wide
+                  ? {
+                      WebkitMaskImage:
+                        "radial-gradient(ellipse 62% 58% at 50% 50%, #000 55%, transparent 82%)",
+                      maskImage:
+                        "radial-gradient(ellipse 62% 58% at 50% 50%, #000 55%, transparent 82%)",
+                    }
+                  : undefined
               }
             />
             {!wide && <div className="absolute inset-0 bg-a-obsidian/45" />}
