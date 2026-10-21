@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Auréléa Atelier">
+  <rect width="64" height="64" fill="#080809"/>
+  <circle cx="32" cy="36" r="16.5" fill="none" stroke="#D6C09A" stroke-width="2.6"/>
+  <path d="M32 8.5 39 20h-14z" fill="#D6C09A"/>
+  <path d="M32 22.5 36.4 20 32 30.5 27.6 20z" fill="#F4F0E8"/>
+</svg>
