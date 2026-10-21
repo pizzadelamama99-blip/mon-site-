@@ -4,6 +4,8 @@ import Hero from "./components/Hero";
 import Marquee from "./components/Marquee";
 import Collections from "./components/Collections";
 import DiamondShowcase from "./components/DiamondShowcase";
+import RubySignature from "./components/RubySignature";
+import Promises from "./components/Promises";
 import SavoirFaire from "./components/SavoirFaire";
 import Catalog from "./components/Catalog";
 import Editorial from "./components/Editorial";
@@ -28,6 +30,8 @@ export default function AurelisApp() {
           <Hero />
           <Marquee />
           <Collections />
+          <RubySignature />
+          <Promises />
           <DiamondShowcase />
           <SavoirFaire />
           <Catalog />

@@ -114,6 +114,45 @@ export const pieces: Piece[] = [
     note: "L'évidence d'un anneau d'or, dessiné pour ne jamais quitter l'oreille.",
   },
   {
+    id: "rubis-imperial",
+    name: "Rubis Impérial",
+    collection: "Jardin Secret",
+    category: "Bagues" as const,
+    material: "Platine 950",
+    stones: "Rubis ovale non chauffé & diamants",
+    carat: "4,18 ct",
+    price: 36800,
+    image: "/images/ruby-ring.jpg",
+    focus: "50% 42%",
+    note: "Un rubis de Birmanie cerclé de vingt-deux brillants, épaules de baguettes calibrées.",
+    signature: true,
+  },
+  {
+    id: "alliance-eternite",
+    name: "Alliance Éternité",
+    collection: "Éclat",
+    category: "Bagues" as const,
+    material: "Or blanc 18 carats",
+    stones: "Diamants taille émeraude",
+    carat: "5,60 ct",
+    price: 28900,
+    image: "/images/eternity-white.jpg",
+    note: "Vingt-quatre diamants taille émeraude, sertis clos, sur tout le tour du jonc.",
+  },
+  {
+    id: "pendantes-lumiere",
+    name: "Pendantes Lumière",
+    collection: "Éclat",
+    category: "Boucles" as const,
+    material: "Or blanc 18 carats",
+    stones: "Diamants marquise en cascade",
+    carat: "3,40 ct",
+    price: 13400,
+    image: "/images/portrait-earrings.jpg",
+    focus: "46% 52%",
+    note: "Une cascade de marquises qui accompagne chaque mouvement du visage.",
+  },
+  {
     id: "riviere-diamants",
     name: "Rivière de Diamants",
     collection: "Jardin Secret",
@@ -205,6 +244,32 @@ export const pressQuotes = [
       "L'émeraude impériale d'Aurelis est l'une des pièces les plus remarquables vues cette année.",
     source: "L'Éclat",
     year: "2026",
+  },
+];
+
+export const microCopy = [
+  {
+    title: "Pièces d'exception",
+    text: "Une seule pièce par dessin. Les pierres sont sélectionnées à Anvers, à la lumière du jour.",
+    image: "/images/ruby-ring.jpg",
+    focus: "52% 45%",
+  },
+  {
+    title: "Serti à la main",
+    text: "Trois artisans, loupe binoculaire ×10, pince à sertir. Un geste qui ne pardonne pas l'approximation.",
+    image: "/images/atelier.jpg",
+  },
+  {
+    title: "Assortiment rare",
+    text: "Bagues, colliers, pendantes et bracelets : chaque famille est dessinée comme un ensemble.",
+    image: "/images/portrait-earrings.jpg",
+    focus: "46% 45%",
+  },
+  {
+    title: "Écrin signature",
+    text: "Écrin en cuir pleine fleur, certificat gemmologique et entretien annuel à vie.",
+    image: "/images/salon.jpg",
+    focus: "50% 42%",
   },
 ];
 

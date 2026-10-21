@@ -39,25 +39,32 @@ src/
 │   ├── context/CoffretContext.tsx
 │   └── components/
 │       ├── Header.tsx        # bandeau service, nav, logotype, coffret
-│       ├── Hero.tsx          # photo plein écran + parallaxe + ken burns
+│       ├── Hero.tsx          # hero « BRILLIANCE » : typo fantôme, pièce, cartel
 │       ├── Marquee.tsx       # bandeau défilant de réassurance
 │       ├── Collections.tsx   # 3 collections, cartes éditoriales
+│       ├── RubySignature.tsx # section #rubis : bague 3D pilotée au défilement
+│       ├── Promises.tsx      # grille des 4 engagements (façon DE'ART)
 │       ├── DiamondShowcase.tsx  # pièce d'exception + scène 3D
 │       ├── SavoirFaire.tsx   # atelier, 4 étapes, image parallaxe
 │       ├── Catalog.tsx       # 8 pièces, filtres par catégorie
-│       ├── Editorial.tsx     # pleine largeur, « La main est un paysage »
+│       ├── Editorial.tsx     # éditorial ivoire « velora / atelier »
 │       ├── Press.tsx         # citations presse
 │       ├── Appointment.tsx   # formulaire + 3 boutiques
-│       ├── Cercle.tsx        # inscription + aura ShaderGradient
+│       ├── Cercle.tsx        # inscription + aura ShaderGradient + export du site
+│       ├── DownloadSite.tsx  # bouton « Télécharger le site » (HTML ou ZIP)
 │       ├── Footer.tsx
 │       ├── CoffretDrawer.tsx # tiroir latéral (sélection, quantités, total)
 │       ├── ui.tsx            # boutons, filets, micro-libellés, Reveal
 │       └── effects/
 │           ├── DiamondScene.tsx   # solitaire 3D temps réel (R3F + drei)
+│           ├── RubyRingScene.tsx # bague rubis procédurale pilotée par le scroll
 │           ├── GoldLogo.tsx       # logotype en or liquide (shader)
 │           ├── GoldAura.tsx       # fond ShaderGradient assombri
 │           └── ShaderBoundary.tsx # filet de sécurité WebGL
 └── components/               # ← site FRUIZZ (démo précédente)
+
+scripts/
+└── export-standalone.mjs     # post-build : version autonome hors ligne
 ```
 
 ## Effets temps réel
@@ -75,6 +82,27 @@ luxe plutôt que démonstrative :
 2. **LiquidMetal (Paper Shaders)** — le logotype AURELIS est dessiné dans un
    canvas puis utilisé comme masque du shader : l'or « coule » dans les lettres.
 3. **ShaderGradient** — une aura or/bordeaux très lente en fond du Cercle.
+
+### La bague du Rubis Impérial (`#rubis`)
+
+`effects/RubyRingScene.tsx` construit la pièce de la section signature, d'après
+les photos fournies : rubis ovale facetté (couronne haute, pavillon profond),
+halo de 22 brillants, griffes, baguettes d'épaule, jonc en platine.
+
+Le modèle est **entièrement procédural** (aucun fichier 3D) : les gemmes sont
+générées en géométrie non indexée pour obtenir des facettes nettes.
+
+L'animation ne dépend pas du temps mais du **défilement** : `RubySignature`
+suit `scrollYProgress` avec un ressort, publie la valeur dans une `ref`
+(aucun re-render par image) et `useFrame` y lit la progression pour :
+
+- faire pivoter la bague de trois-quarts gauche à trois-quarts droit,
+- resserrer le cadrage au milieu du parcours,
+- faire scintiller le halo (rotation lente),
+- allumer le rubis (`emissiveIntensity` de 0,14 à 0,52).
+
+Sans WebGL (ou si `prefers-reduced-motion`), un visuel photographique prend le
+relais : la section reste lisible et le texte identique.
 
 **Performances** : la scène 3D ne tourne que lorsqu'elle est visible
 (`useInView`), elle est désactivée sur mobile et si l'utilisateur préfère
@@ -94,6 +122,33 @@ image ou le logotype, jamais par une page blanche.
 - **Mobile** : menu plein écran, hero recadré, grilles repensées, aucun
   débordement horizontal (vérifié à 360 px).
 - **SEO / partage** : titre, description, Open Graph, favicon SVG.
+
+## Télécharger le site
+
+Le bouton **« Télécharger le site »** est présent deux fois : dans le bandeau
+de service (version compacte) et sous le formulaire du Cercle (version
+complète, avec l'option « inclure les images »).
+
+| Format | Contenu |
+| --- | --- |
+| `aurelis-haute-joaillerie.html` | la page complète en un fichier (CSS + JS intégrés), images non incluses |
+| `aurelis-haute-joaillerie.zip` | `index.html` + `images/…` + `favicon.svg` + `logo.svg`, prêt à ouvrir hors ligne |
+
+Détails d'implémentation :
+
+- `npm run build` produit `dist/index.html` (fichier unique via
+  `vite-plugin-singlefile`) puis `scripts/export-standalone.mjs` en dérive
+  `public/aurelis-site.html` : mêmes styles, mêmes scripts, chemins d'images
+  rendus relatifs (`images/…`).
+- Le bouton récupère ce fichier ; à défaut (serveur sans le fichier), il clone
+  le document courant en nettoyant l'état de l'interface.
+- Le ZIP est écrit **sans dépendance** (méthode « store ») : en-têtes locaux,
+  répertoire central, CRC32 calculé en JavaScript, date DOS fixe pour un
+  export reproductible.
+- Les visuels sont collectés depuis le DOM **et** depuis les chemins cités par
+  le bundle, pour inclure les images des sections pas encore montées.
+- Les polices restent chargées depuis Google Fonts : hors ligne, le site
+  s'affiche avec les polices de substitution (Times / Helvetica).
 
 ## Palette
 

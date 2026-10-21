@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { AnimatePresence, motion, useScroll } from "framer-motion";
 import { useCoffret } from "../context/CoffretContext";
 import LiquidGlass from "../../components/effects/LiquidGlass";
+import DownloadSite from "./DownloadSite";
 
 const links = [
   { href: "#collections", label: "Collections" },
@@ -57,6 +58,10 @@ export default function Header() {
             <span aria-hidden className="h-3 w-px bg-white/15" />
             <span className="font-jost text-[9px] tracking-[0.3em] text-j-gold uppercase sm:text-[10px]">
               FR · EUR
+            </span>
+            <span aria-hidden className="h-3 w-px bg-white/15" />
+            <span className="[&_button]:border-0 [&_button]:px-0 [&_button]:py-0 [&_button]:text-[8.5px] [&_button]:tracking-[0.22em] [&_button]:text-j-ivory-dim">
+              <DownloadSite compact />
             </span>
           </div>
         </div>

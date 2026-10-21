@@ -2,7 +2,9 @@
 
 Un seul build, deux sites :
 
-- **Maison AURELIS** (par défaut, `/`) — haute joaillerie, noir & or.
+- **Maison AURELIS** (par défaut, `/`) — haute joaillerie, noir & or :
+  hero éditorial, **bague rubis 3D animée au défilement**, section atelier
+  ivoire, engagements, et **site téléchargeable** (HTML ou ZIP).
   Documentation : **[AURELIS.md](./AURELIS.md)**
 - **FRUIZZ** (`/#/fruizz`) — concept soda, avec les 4 effets du guide DM.
 
@@ -13,7 +15,7 @@ Basé sur **React 19 + Vite 7 + Tailwind 4**.
 ```bash
 npm install
 npm run dev      # http://localhost:5173
-npm run build    # build production (fichier unique)
+npm run build    # build production (fichier unique) + export autonome
 npm run preview  # sert le build
 ```
 

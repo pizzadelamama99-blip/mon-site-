@@ -36,6 +36,12 @@ function useHashRoute() {
   return isSoda;
 }
 
+// Exposé pour l'export « Télécharger le site » (voir DownloadSiteButton).
+if (typeof window !== "undefined") {
+  // @ts-expect-error — propriété globale volontaire
+  window.__getSiteHtml = () => document.documentElement.outerHTML;
+}
+
 function Root() {
   const isSoda = useHashRoute();
   return <>{isSoda ? <SodaApp /> : <AurelisApp />}</>;

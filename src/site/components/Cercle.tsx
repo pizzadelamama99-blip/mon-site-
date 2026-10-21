@@ -1,6 +1,7 @@
 import { useState } from "react";
 import GoldAura from "./effects/GoldAura";
 import ShaderBoundary from "./effects/ShaderBoundary";
+import DownloadSite from "./DownloadSite";
 import { GoldButton, Micro, Reveal } from "./ui";
 
 export default function Cercle() {
@@ -66,6 +67,20 @@ export default function Cercle() {
         <p className="mt-6 font-jost text-[9px] tracking-[0.22em] text-j-ivory/40 uppercase">
           Deux envois par an · Désinscription immédiate
         </p>
+
+        {/* Emporter la démonstration */}
+        <div data-export-keep className="mt-16 border-t border-white/10 pt-10">
+          <p className="font-jost text-[8.5px] tracking-[0.36em] text-j-gold uppercase">
+            Emporter la démonstration
+          </p>
+          <p className="mx-auto mt-3 max-w-md font-jost text-[11.5px] leading-[1.9] font-light text-j-ivory/45">
+            Récupérez ce site en un fichier : styles, animations et scripts
+            intégrés. Les images sont ajoutées à l'archive.
+          </p>
+          <div className="mt-6">
+            <DownloadSite />
+          </div>
+        </div>
       </div>
     </section>
   );
