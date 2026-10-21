@@ -1,0 +1,145 @@
+/* =========================================================
+   AURÉLÉA ATELIER — jetons de la maison
+   Les noms sont préfixés (a-*, font-lux/font-ui) pour ne pas
+   interférer avec la démo FRUIZZ qui partage le même build.
+   ========================================================= */
+
+@theme {
+  --color-a-obsidian: #080809;
+  --color-a-velvet: #121113;
+  --color-a-champagne: #d6c09a;
+  --color-a-gold: #b99a64;
+  --color-a-ivory: #f4f0e8;
+  --color-a-diamond: #ffffff;
+  --color-a-grey: #8a8785;
+
+  --font-lux: "Cormorant Garamond", "Times New Roman", serif;
+  --font-ui: "Manrope", "Helvetica Neue", Arial, sans-serif;
+}
+
+/* ---------- Racine du site ---------- */
+.aurelea-root {
+  background-color: var(--color-a-obsidian);
+  color: var(--color-a-ivory);
+  font-family: var(--font-ui);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.aurelea-root ::selection {
+  background: var(--color-a-champagne);
+  color: var(--color-a-obsidian);
+}
+
+/* Les ancres ne doivent pas passer sous l'en-tête fixe */
+section[id] {
+  scroll-margin-top: 104px;
+}
+
+/* Filet lumineux ---------------------------------------------------- */
+.a-hairline {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(214, 192, 154, 0.55) 22%,
+    rgba(214, 192, 154, 0.9) 50%,
+    rgba(214, 192, 154, 0.55) 78%,
+    transparent
+  );
+}
+
+/* Titre monumental, léger -------------------------------------------------- */
+.a-display {
+  font-family: var(--font-lux);
+  font-weight: 300;
+  letter-spacing: -0.015em;
+  line-height: 0.92;
+}
+
+/* Mot géant en fond (BRILLANCE, RADIANCE…) */
+.a-ghost-word {
+  font-family: var(--font-lux);
+  font-weight: 300;
+  letter-spacing: 0.02em;
+  line-height: 0.8;
+  color: rgba(244, 240, 232, 0.055);
+  user-select: none;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+/* Grain discret, façon papier photo ---------------------------------------- */
+.aurelea-grain::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  pointer-events: none;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Satin noir : plis très doux derrière la scène 3D ------------------------- */
+.a-satin {
+  background:
+    radial-gradient(120% 80% at 50% 0%, rgba(214, 192, 154, 0.07), transparent 60%),
+    radial-gradient(80% 60% at 15% 20%, rgba(255, 255, 255, 0.045), transparent 65%),
+    radial-gradient(70% 70% at 88% 78%, rgba(0, 0, 0, 0.85), transparent 60%),
+    linear-gradient(155deg, #0d0c0e 0%, #080809 45%, #101012 100%);
+}
+
+/* Focus visible doré ------------------------------------------------------ */
+.aurelea-root :focus-visible {
+  outline: 1px solid var(--color-a-champagne);
+  outline-offset: 3px;
+}
+
+/* Apparition douce (utilisée par le composant Reveal) ---------------------- */
+@keyframes a-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Défilement du bandeau --------------------------------------------------- */
+@keyframes a-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.a-marquee-track {
+  animation: a-marquee 42s linear infinite;
+}
+
+/* Curseur de lumière qui glisse sur le métal ------------------------------ */
+@keyframes a-sheen {
+  0%,
+  100% {
+    opacity: 0.25;
+    transform: translateX(-12%);
+  }
+  50% {
+    opacity: 0.7;
+    transform: translateX(12%);
+  }
+}
+
+.a-sheen {
+  animation: a-sheen 9s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .a-marquee-track,
+  .a-sheen {
+    animation: none;
+  }
+}

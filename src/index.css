@@ -1,5 +1,5 @@
 @import "tailwindcss";
-@import "./site/theme.css";
+@import "./aurelea/theme.css";
 
 @theme {
   --color-lime-soda: #ddf3a5;
