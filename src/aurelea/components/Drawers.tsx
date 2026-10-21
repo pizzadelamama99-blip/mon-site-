@@ -177,7 +177,7 @@ export function CartDrawer() {
         <ul className="space-y-5">
           {lines.map((l) => (
             <li key={l.key} className="flex gap-4 border-b border-white/8 pb-5">
-              <img src={l.image} alt={l.name} className="h-24 w-20 shrink-0 object-cover" />
+              <img src={l.image} alt={l.name} className="h-24 w-20 shrink-0 object-cover" style={{ objectPosition: l.focus ?? "50% 50%" }} />
               <div className="flex flex-1 flex-col">
                 <div className="flex items-start justify-between gap-3">
                   <div>
@@ -263,7 +263,7 @@ export function FavoritesPanel() {
           {items.map((p) => (
             <li key={p!.slug} className="flex gap-4 border-b border-white/8 pb-5">
               <a href={productPath(p!.slug)} onClick={() => setOpenFavorites(false)} className="shrink-0">
-                <img src={p!.image} alt={p!.name} className="h-24 w-20 object-cover" />
+                <img src={p!.image} alt={p!.name} className="h-24 w-20 object-cover" style={{ objectPosition: p!.focus ?? "50% 50%" }} />
               </a>
               <div className="flex flex-1 flex-col">
                 <p className="font-lux text-[17px] leading-tight text-a-ivory">{p!.name}</p>
@@ -379,7 +379,7 @@ export function SearchOverlay() {
                     onClick={() => setOpenSearch(false)}
                     className="group flex items-center gap-4 py-4 transition-colors hover:bg-white/[0.03]"
                   >
-                    <img src={p.image} alt="" className="h-16 w-14 object-cover" />
+                    <img src={p.image} alt="" className="h-16 w-14 object-cover" style={{ objectPosition: p.focus ?? "50% 50%" }} />
                     <div className="flex-1">
                       <p className="font-lux text-lg font-light text-a-ivory">{p.name}</p>
                       <p className="font-ui text-[8px] tracking-[0.2em] text-a-ivory/40 uppercase">

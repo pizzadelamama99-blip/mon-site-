@@ -19,6 +19,8 @@ export type CartLine = {
   slug: string;
   name: string;
   image: string;
+  /** Cadrage de la vignette, hérité de la fiche produit. */
+  focus?: string;
   price: number;
   metal: MetalId;
   size?: number;
@@ -102,6 +104,7 @@ export function StoreProvider({ children }: { children: ReactNode }) {
           slug,
           name: product.name,
           image: product.image,
+          focus: product.focus,
           price,
           metal: chosenMetal,
           size,

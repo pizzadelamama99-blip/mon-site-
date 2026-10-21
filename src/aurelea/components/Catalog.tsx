@@ -67,6 +67,7 @@ export function ProductCard({
             alt={`${product.name} — ${product.tagline}`}
             loading="lazy"
             decoding="async"
+            style={{ objectPosition: product.focus ?? "50% 50%" }}
             className={`w-full object-cover transition-transform duration-[1400ms] ease-out group-hover:scale-[1.06] ${
               compact ? "aspect-[4/3]" : "aspect-[4/5]"
             }`}
@@ -166,6 +167,7 @@ export function QuickView({ product, onClose }: { product: Product; onClose: () 
           <img
             src={product.image}
             alt={product.name}
+            style={{ objectPosition: product.focus ?? "50% 50%" }}
             className="h-64 w-full object-cover sm:h-full"
           />
 
@@ -277,6 +279,10 @@ export default function Catalog({ full = false }: { full?: boolean }) {
     );
   }, [query, category, stone, metal, collection, sort]);
 
+  // La même grille sert l'accueil (h2) et la page catalogue (h1) : un seul
+  // titre de niveau 1 par page, sans dupliquer le composant.
+  const Heading = full ? "h1" : "h2";
+
   // Sur l'accueil, on ne montre que des pièces disponibles, avec des visuels
   // distincts : quatre vignettes identiques donneraient une impression de faux.
   const displayed = full
@@ -300,10 +306,10 @@ export default function Catalog({ full = false }: { full?: boolean }) {
         <Reveal className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <Eyebrow>{full ? "Le catalogue" : "Les créations"}</Eyebrow>
-            <h2 className="mt-5 font-lux text-[clamp(2.1rem,4.4vw,3.6rem)] leading-[1.02] font-light text-a-ivory">
+            <Heading className="mt-5 font-lux text-[clamp(2.1rem,4.4vw,3.6rem)] leading-[1.02] font-light text-a-ivory">
               {full ? "Toutes les pièces" : "Pièces disponibles"}
               <em className="italic text-a-champagne">.</em>
-            </h2>
+            </Heading>
           </div>
           {!full && (
             <TextLink href="#/catalogue" className="text-a-champagne">

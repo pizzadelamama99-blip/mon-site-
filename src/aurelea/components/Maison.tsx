@@ -12,7 +12,7 @@ export default function Maison() {
           <div className="lg:col-span-6">
             <Eyebrow>La Maison</Eyebrow>
             <h1 className="mt-6 font-lux text-[clamp(2.8rem,6vw,5rem)] leading-[0.98] font-light text-a-ivory">
-              Une maison
+              Une maison{" "}
               <br />
               <em className="italic text-a-champagne">de dessin.</em>
             </h1>

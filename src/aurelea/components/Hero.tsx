@@ -113,7 +113,7 @@ export default function Hero() {
             animate="show"
             className="mt-7 font-lux text-[clamp(2.9rem,6.4vw,5.6rem)] leading-[0.95] font-light tracking-[-0.02em] text-a-ivory"
           >
-            L'éclat de
+            L'éclat de{" "}
             <br />
             <em className="font-light italic text-a-champagne">l'exceptionnel</em>
           </motion.h1>

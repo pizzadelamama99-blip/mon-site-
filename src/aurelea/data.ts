@@ -105,6 +105,9 @@ export type Product = {
   price: number;
   carat?: string;
   image: string;
+  /** Cadrage de la photo (object-position), pour distinguer deux pièces
+      qui partagent un même visuel de démonstration. */
+  focus?: string;
   gallery?: string[];
   tagline: string;
   description: string;
@@ -155,6 +158,7 @@ export const PRODUCTS: Product[] = [
     price: 15800,
     carat: "Diamant ovale 1,50 ct",
     image: "/images/solitaire-ovale.jpg",
+    focus: "50% 58%",
     tagline: "Ovale, platine",
     description:
       "L'ovale allonge la main et renvoie la lumière sur toute sa longueur. Un classique, desserré de la mode par un jonc de platine à peine plus large qu'un fil.",
@@ -206,6 +210,7 @@ export const PRODUCTS: Product[] = [
     price: 22600,
     carat: "Rubis poire 2,60 ct",
     image: "/images/rubis-halo.jpg",
+    focus: "42% 46%",
     tagline: "Poire, or rose",
     description:
       "Une poire profondément colorée, posée de biais sur un jonc d'or rose. Le déséquilibre est calculé : la pierre penche de douze degrés, comme un bijou porté depuis toujours.",
@@ -254,6 +259,7 @@ export const PRODUCTS: Product[] = [
     price: 3200,
     carat: "Or massif",
     image: "/images/alliance-baguettes.jpg",
+    focus: "50% 58%",
     tagline: "Or champagne, uni",
     description:
       "Un ruban d'or champagne de 4 mm, brossé dans le sens de la longueur. Aucune pierre : la ligne seule, et la lumière rasante qui la traverse.",
@@ -325,6 +331,7 @@ export const PRODUCTS: Product[] = [
     price: 5300,
     carat: "Diamant rond 0,45 ct",
     image: "/images/collier-riviere.jpg",
+    focus: "50% 62%",
     tagline: "Solitaire suspendu",
     description:
       "Un brillant unique suspendu à un fil d'or blanc. Le pendentif coulisse sur la chaîne : on le porte haut le jour, plus bas le soir.",
@@ -371,6 +378,7 @@ export const PRODUCTS: Product[] = [
     price: 22000,
     carat: "22 diamants — 4,20 ct",
     image: "/images/bracelet-serpentine.jpg",
+    focus: "50% 40%",
     tagline: "Baguettes, platine",
     description:
       "Vingt-deux diamants taille émeraude alignés sur un rail de platine. Le bracelet est lourd, volontairement : il doit rappeler sa présence au poignet.",
@@ -417,6 +425,7 @@ export const PRODUCTS: Product[] = [
     price: 4900,
     carat: "Perles Akoya 8 mm",
     image: "/images/boucles-larme.jpg",
+    focus: "52% 58%",
     tagline: "Perles, or champagne",
     description:
       "Deux perles Akoya de 8 mm, posées sur une ancre d'or champagne. La nacre garde la lumière du matin, sans reflet dur.",
@@ -440,6 +449,7 @@ export const PRODUCTS: Product[] = [
     price: 8200,
     carat: "Diamant rond 0,80 ct",
     image: "/images/solitaire-ovale.jpg",
+    focus: "48% 62%",
     tagline: "Rond, or blanc",
     description:
       "Un brillant de 0,80 ct monté bas, à hauteur de doigt. La monture est creusée sous la pierre pour laisser passer la lumière et permettre de porter une alliance à côté.",
@@ -464,6 +474,7 @@ export const PRODUCTS: Product[] = [
     price: 11200,
     carat: "Saphir ovale 1,80 ct",
     image: "/images/rubis-halo.jpg",
+    focus: "58% 58%",
     tagline: "Saphir, or blanc",
     description:
       "Un saphir ovale d'un bleu profond, entouré d'un halo de brillants. La pièce se porte seule : elle n'a pas besoin d'être accompagnée.",

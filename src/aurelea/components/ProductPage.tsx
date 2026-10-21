@@ -84,6 +84,7 @@ export default function ProductPage({ slug }: { slug: string }) {
               <img
                 src={product.image}
                 alt={`${product.name} — ${product.tagline}`}
+                style={{ objectPosition: product.focus ?? "50% 50%" }}
                 className="h-full w-full object-cover"
               />
             )}

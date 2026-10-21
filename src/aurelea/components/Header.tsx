@@ -114,7 +114,7 @@ export default function Header() {
                 type="button"
                 onClick={() => setMenu(true)}
                 aria-label="Ouvrir le menu"
-                className="flex h-9 w-9 items-center justify-center text-a-ivory"
+                className="flex h-11 w-11 items-center justify-center text-a-ivory"
               >
                 <Icon name="menu" />
               </button>
@@ -131,7 +131,7 @@ export default function Header() {
             </a>
 
             {/* Actions */}
-            <div className="flex flex-1 items-center justify-end gap-4 sm:gap-5">
+            <div className="flex flex-1 items-center justify-end gap-1 sm:gap-2">
               <a
                 href="#/catalogue"
                 className="hidden font-ui text-[9px] tracking-[0.28em] text-a-ivory/65 uppercase transition-colors hover:text-a-ivory lg:block"
@@ -142,7 +142,7 @@ export default function Header() {
                 type="button"
                 onClick={() => setOpenSearch(true)}
                 aria-label="Rechercher une création"
-                className="text-a-ivory/70 transition-colors hover:text-a-champagne"
+                className="flex h-10 w-10 items-center justify-center text-a-ivory/70 transition-colors hover:text-a-champagne"
               >
                 <Icon name="search" />
               </button>
@@ -150,7 +150,7 @@ export default function Header() {
                 type="button"
                 onClick={() => setOpenFavorites(true)}
                 aria-label={`Favoris (${favorites.length})`}
-                className="relative text-a-ivory/70 transition-colors hover:text-a-champagne"
+                className="relative flex h-10 w-10 items-center justify-center text-a-ivory/70 transition-colors hover:text-a-champagne"
               >
                 <Icon name="heart" />
                 {favorites.length > 0 && (
@@ -163,7 +163,7 @@ export default function Header() {
                 type="button"
                 onClick={() => setOpenCart(true)}
                 aria-label={`Panier (${count})`}
-                className="relative text-a-ivory/70 transition-colors hover:text-a-champagne"
+                className="relative flex h-10 w-10 items-center justify-center text-a-ivory/70 transition-colors hover:text-a-champagne"
               >
                 <Icon name="bag" />
                 {count > 0 && (
