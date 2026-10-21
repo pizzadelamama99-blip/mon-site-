@@ -15,6 +15,11 @@ import { ShaderGradientCanvas, ShaderGradient } from "@shadergradient/react";
 export default function ShaderBackground() {
   return (
     <div className="pointer-events-none absolute inset-0 overflow-hidden bg-lime-soda">
+      {/* Fond de secours : si WebGL/le canvas échoue, la charte reste lisible */}
+      <div
+        aria-hidden
+        className="absolute inset-0 bg-[radial-gradient(120%_90%_at_12%_8%,#e8328f_0%,transparent_42%),radial-gradient(100%_80%_at_92%_18%,#ffc93c_0%,transparent_48%),linear-gradient(160deg,#b9e26a_0%,#c9a7f0_55%,#a8d95c_100%)]"
+      />
       <ShaderGradientCanvas
         style={{ position: "absolute", inset: 0, width: "100%", height: "100%" }}
         pixelDensity={1}

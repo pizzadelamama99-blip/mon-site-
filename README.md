@@ -1,7 +1,12 @@
-# FRUIZZ — site soda (démo)
+# FRUIZZ × AURELIS — deux démonstrations
 
-Site vitrine de démonstration pour une marque fictive de sodas aux fruits,
-construit avec **React 19 + Vite 7 + Tailwind 4**.
+Un seul build, deux sites :
+
+- **Maison AURELIS** (par défaut, `/`) — haute joaillerie, noir & or.
+  Documentation : **[AURELIS.md](./AURELIS.md)**
+- **FRUIZZ** (`/#/fruizz`) — concept soda, avec les 4 effets du guide DM.
+
+Basé sur **React 19 + Vite 7 + Tailwind 4**.
 
 ## Démarrer
 

@@ -15,10 +15,17 @@ export default function Hero() {
       {showShader ? (
         <ShaderBackground />
       ) : (
-        <div
-          aria-hidden
-          className="absolute inset-0 bg-[radial-gradient(120%_90%_at_15%_10%,#e8328f_0%,transparent_45%),radial-gradient(100%_80%_at_90%_20%,#ffc93c_0%,transparent_50%),linear-gradient(160deg,#ddf3a5_0%,#c9a7f0_55%,#ddf3a5_100%)] opacity-70"
-        />
+        <>
+          <div
+            aria-hidden
+            className="absolute inset-0 bg-[radial-gradient(120%_90%_at_12%_8%,#e8328f_0%,transparent_42%),radial-gradient(100%_80%_at_92%_18%,#ffc93c_0%,transparent_48%),linear-gradient(160deg,#b9e26a_0%,#c9a7f0_55%,#a8d95c_100%)] opacity-80"
+          />
+          {/* Voile de lisibilité quand WebGL n'est pas disponible */}
+          <div
+            aria-hidden
+            className="absolute inset-0 bg-gradient-to-r from-lime-soda/85 via-lime-soda/55 to-transparent"
+          />
+        </>
       )}
 
       <div className="relative z-10 mx-auto grid max-w-6xl items-center gap-8 px-4 pt-10 pb-16 sm:px-6 lg:grid-cols-[1fr_1.15fr] lg:gap-4 lg:pt-16 lg:pb-24">
