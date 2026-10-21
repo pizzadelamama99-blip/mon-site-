@@ -144,9 +144,9 @@ function Scene({ animate }: { animate: boolean }) {
       <pointLight position={[0, -1.5, 3]} intensity={1.6} color="#e8328f" />
 
       <Float
-        speed={animate ? 1.4 : 0}
-        rotationIntensity={animate ? 0.35 : 0}
-        floatIntensity={animate ? 1 : 0}
+        speed={animate ? 1.2 : 0}
+        rotationIntensity={animate ? 0.3 : 0}
+        floatIntensity={animate ? 0.45 : 0}
       >
         <group position={[0, 0.05, 0]}>
           <Can
@@ -158,15 +158,15 @@ function Scene({ animate }: { animate: boolean }) {
           />
           <Can
             flavor={FLAVORS[0]}
-            position={[-1.35, 0.12, -0.6]}
-            scale={0.85}
+            position={[-1.25, 0.12, -0.65]}
+            scale={0.8}
             tilt={-0.16}
             spin={0.3}
           />
           <Can
             flavor={FLAVORS[2]}
-            position={[1.35, -0.06, -0.55]}
-            scale={0.85}
+            position={[1.25, -0.06, -0.6]}
+            scale={0.8}
             tilt={0.18}
             spin={0.26}
           />
@@ -174,7 +174,7 @@ function Scene({ animate }: { animate: boolean }) {
       </Float>
 
       <ContactShadows
-        position={[0, -1.25, 0]}
+        position={[0, -1.15, 0]}
         opacity={0.28}
         scale={8}
         blur={2.6}
@@ -231,7 +231,7 @@ export default function CanScene({
       className={className}
       shadows
       dpr={[1, 1.8]}
-      camera={{ position: [0, 0.55, 4.6], fov: 40 }}
+      camera={{ position: [0, 0.5, 5.2], fov: 38 }}
       gl={{ antialias: true, alpha: true }}
     >
       <Suspense fallback={null}>

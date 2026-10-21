@@ -83,11 +83,25 @@ public/
 - **Réglages** (identiques aux curseurs de la démo) : `blur` 1→15, `tintOpacity` 0→1,
   `edgeIntensity` 0→0.1, `variant` `card | pill | circle`.
 - **Note d'intégration** : le repo d'origine est du **JS vanilla** (`container.js` + `button.js`,
-  plus `html2canvas` pour capturer la page). Sur ce site, l'effet est **wrappé en composants React**
-  (`LiquidGlass`, `LiquidGlassButton`, `LiquidGlassContainer`) avec le même vocabulaire de réglages.
-  Raison : `html2canvas@1.4.1` ne sait pas lire les couleurs `oklch()` de Tailwind 4 et la capture
-  pleine page casse la mise en page ; le wrapper CSS + `backdrop-filter` + réfraction SVG donne le
-  même rendu sans dépendance externe ni capture d'écran.
+  plus `html2canvas` pour capturer la page). Le guide le dit lui-même : pour React, « demande à
+  Claude Code de te le wrapper en composant ». C'est ce qui a été fait ici :
+  `LiquidGlass`, `LiquidGlassButton`, `LiquidGlassContainer`, avec le même vocabulaire de réglages.
+
+  Raison technique du wrapper : `html2canvas@1.4.1` ne sait pas lire les couleurs `oklch()` de
+  Tailwind 4 et la capture de `document.body` casse la mise en page. Le wrapper CSS
+  (`backdrop-filter` + gradients de réfraction + `inset` highlights) donne le même rendu,
+  sans dépendance externe ni capture d'écran. La lib vanilla reste utilisable telle quelle dans un
+  projet non-Tailwind :
+
+  ```html
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+  <script src="container.js"></script>
+  <script src="button.js"></script>
+  <script>
+    const button = new Button({ text: 'Click Me!', size: 32, type: 'rounded' })
+    document.body.appendChild(button.element)
+  </script>
+  ```
 
 ## 4 · React Three Fiber — la 3D
 

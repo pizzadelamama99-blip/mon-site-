@@ -20,6 +20,7 @@ export default function Footer() {
               <ul className="space-y-2">
                 <li><a href="#saveurs" className="transition hover:text-lime-soda">Les saveurs</a></li>
                 <li><a href="#histoire" className="transition hover:text-lime-soda">Notre histoire</a></li>
+                <li><a href="#labo" className="transition hover:text-lime-soda">Labo 3D</a></li>
                 <li><a href="#boutique" className="transition hover:text-lime-soda">Boutique</a></li>
               </ul>
             </div>
@@ -37,7 +38,7 @@ export default function Footer() {
         </div>
         <div className="mt-10 flex flex-col items-center justify-between gap-3 border-t border-white/10 pt-6 text-xs text-white/40 sm:flex-row">
           <p>© 2025 FRUIZZ — Site de démonstration, aucun achat réel possible.</p>
-          <p>Fait avec des bulles et beaucoup d'amour ✦</p>
+          <p>Fait avec des bulles, de la 3D et beaucoup d'amour ✦</p>
         </div>
       </div>
     </footer>
