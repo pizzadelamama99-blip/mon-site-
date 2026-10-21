@@ -1,4 +1,3 @@
-import { useRef } from "react";
 import { motion } from "framer-motion";
 import CanScene from "./effects/CanScene";
 import LiquidLogo from "./effects/LiquidLogo";
@@ -45,7 +44,6 @@ export default function EffectsLab() {
   const isMobile = useIsMobile();
   const reduced = useReducedMotion();
   const animate = !reduced;
-  const scroller = useRef<HTMLDivElement>(null);
 
   return (
     <section
@@ -118,9 +116,9 @@ export default function EffectsLab() {
                   </span>
                 </div>
                 <p className="text-sm leading-relaxed text-white/75">
-                  Le même effet que sur la barre de navigation : flou 12,
-                  réfraction sur les bords, teinte à 18 %. Réglages calés sur
-                  les curseurs de la démo.
+                  Flou 14, réfraction sur les bords, teinte à 30 % : les mêmes
+                  réglages que sur la barre de navigation, calés sur les
+                  curseurs de la démo.
                 </p>
                 <div className="mt-4 flex flex-wrap items-center gap-2">
                   <LiquidGlassButton
@@ -145,10 +143,7 @@ export default function EffectsLab() {
                 </div>
               </LiquidGlass>
 
-              <div
-                ref={scroller}
-                className="grid gap-2 sm:grid-cols-2 lg:max-h-[248px] lg:overflow-y-auto lg:pr-1"
-              >
+              <div className="grid gap-2 sm:grid-cols-2 lg:max-h-[248px] lg:overflow-y-auto lg:pr-1">
                 {effects.slice(0, isMobile ? 2 : 4).map((e) => (
                   <motion.a
                     key={e.title}
