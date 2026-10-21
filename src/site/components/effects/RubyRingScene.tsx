@@ -192,9 +192,9 @@ function Ring({
     const tt = THREE.MathUtils.clamp(progress.current, 0, 1);
 
     // Trois-quarts gauche → face → trois-quarts droit.
-    const targetY = THREE.MathUtils.lerp(-0.62, 0.58, tt);
+    const targetY = THREE.MathUtils.lerp(-0.34, 0.36, tt);
     const targetX = THREE.MathUtils.lerp(0.06, -0.04, tt);
-    const targetScale = THREE.MathUtils.lerp(1.0, 1.14, Math.sin(tt * Math.PI) * 0.9);
+    const targetScale = THREE.MathUtils.lerp(1.1, 1.26, Math.sin(tt * Math.PI) * 0.9);
 
     group.current.rotation.y += (targetY - group.current.rotation.y) * Math.min(1, delta * 2.2);
     group.current.rotation.x += (targetX - group.current.rotation.x) * Math.min(1, delta * 2.2);
@@ -241,13 +241,13 @@ function Ring({
 
         {/* Court couronne de platine */}
         <mesh position={[0, 0, -0.06]} scale={[1.02, 1.22, 1]}>
-          <torusGeometry args={[0.52, 0.045, 16, 96]} />
+          <torusGeometry args={[0.55, 0.05, 16, 96]} />
           <meshStandardMaterial color="#e2e6ef" metalness={0.9} roughness={0.22} envMapIntensity={2.6} />
         </mesh>
 
         {/* Halo de brillants */}
-        <group ref={halo} scale={[1.16, 1.34, 1]}>
-          <Halos radius={0.56} count={28} size={0.05} color="#ffffff" emissive="#dfe9ff" />
+        <group ref={halo} scale={[1.16, 1.36, 1]}>
+          <Halos radius={0.5} count={26} size={0.045} color="#ffffff" emissive="#dfe9ff" />
         </group>
 
         {/* Rubis ovale */}
@@ -255,17 +255,17 @@ function Ring({
           <mesh geometry={rubyGeometry} rotation={[Math.PI / 2 + 0.14, 0, 0.12]} castShadow>
             <meshPhysicalMaterial
               ref={gem}
-              color="#a90f28"
-              emissive="#5e0010"
-              emissiveIntensity={0.3}
-              metalness={0.6}
-              roughness={0.22}
+              color="#b3122c"
+              emissive="#6d0012"
+              emissiveIntensity={0.34}
+              metalness={0.32}
+              roughness={0.09}
               transmission={0}
               ior={1.77}
-              clearcoat={0.3}
-              clearcoatRoughness={0.28}
-              specularIntensity={0.7}
-              envMapIntensity={0.9}
+              clearcoat={0.85}
+              clearcoatRoughness={0.06}
+              specularIntensity={1}
+              envMapIntensity={1.8}
               flatShading
               side={THREE.DoubleSide}
             />

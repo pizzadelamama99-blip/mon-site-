@@ -1,5 +1,5 @@
-import { motion } from "framer-motion";
-import type { ReactNode } from "react";
+import { motion, useInView } from "framer-motion";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 
 /* ---------- Micro-libellé doré (sur-titre) ---------- */
 export function Micro({
@@ -147,13 +147,36 @@ export function Reveal({
   className?: string;
   once?: boolean;
 }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const inView = useInView(ref, { once, margin: "-70px" });
+  // Filet de sécurité : si l'IntersectionObserver rate un défilement rapide
+  // (saut d'ancre, retour arrière), la géométrie prend le relais au scroll.
+  const [near, setNear] = useState(false);
+
+  useEffect(() => {
+    if (inView || near) return;
+    const check = () => {
+      const r = ref.current?.getBoundingClientRect();
+      if (r && r.top < window.innerHeight - 70 && r.bottom > 0) setNear(true);
+    };
+    check();
+    window.addEventListener("scroll", check, { passive: true });
+    window.addEventListener("resize", check);
+    return () => {
+      window.removeEventListener("scroll", check);
+      window.removeEventListener("resize", check);
+    };
+  }, [inView, near]);
+
+  const visible = inView || near;
+
   return (
     <motion.div
+      ref={ref}
       className={className}
-      initial={{ opacity: 0, y }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once, margin: "-70px" }}
-      transition={{ duration: 1, delay, ease: [0.22, 1, 0.36, 1] }}
+      initial={false}
+      animate={{ opacity: visible ? 1 : 0, y: visible ? 0 : y }}
+      transition={{ duration: 1, delay: visible ? delay : 0, ease: [0.22, 1, 0.36, 1] }}
     >
       {children}
     </motion.div>
